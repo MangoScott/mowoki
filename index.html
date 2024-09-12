@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mowoki - African Travel Experiences</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script type="module" src="https://unpkg.com/@material/web/all.js"></script>
+    <style>
+        :root {
+            --md-sys-color-primary: #FF5722;
+            --md-sys-color-on-primary: #FFFFFF;
+            --md-sys-color-primary-container: #FFDBD0;
+            --md-sys-color-on-primary-container: #3F0300;
+            --md-sys-color-secondary: #4CAF50;
+            --md-sys-color-on-secondary: #FFFFFF;
+            --md-sys-color-secondary-container: #C8E6C9;
+            --md-sys-color-on-secondary-container: #0A280B;
+            --md-sys-color-surface: #FFFBFF;
+            --md-sys-color-on-surface: #201A18;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--md-sys-color-surface);
+            color: var(--md-sys-color-on-surface);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+        header {
+            background-color: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
+            padding: 16px 0;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+        .logo h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        main {
+            padding: 24px 0;
+        }
+        .hero {
+            background: url('https://source.unsplash.com/1600x900/?africa,travel') no-repeat center center/cover;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 24px;
+        }
+        .hero-content {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 24px;
+            border-radius: 8px;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+        .feature-card {
+            background-color: var(--md-sys-color-surface);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .feature-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .feature-card-content {
+            padding: 16px;
+        }
+        footer {
+            background-color: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
+            padding: 16px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <!-- Replace with your actual logo image -->
+                    <img src="https://via.placeholder.com/40" alt="Mowoki Logo">
+                    <h1>Mowoki</h1>
+                </div>
+                <md-elevated-button>Menu</md-elevated-button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Discover Authentic African Experiences</h1>
+                <p>Explore the heart of Africa with Mowoki - Your gateway to unforgettable adventures</p>
+                <md-filled-button>Explore Now</md-filled-button>
+            </div>
+        </section>
+
+        <div class="container">
+            <section class="features">
+                <div class="feature-card">
+                    <img src="https://source.unsplash.com/400x200/?safari" alt="Safari">
+                    <div class="feature-card-content">
+                        <h3>Exciting Activities</h3>
+                        <p>From safaris to cultural tours, experience the best of Africa.</p>
+                        <md-outlined-button>Learn More</md-outlined-button>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <img src="https://source.unsplash.com/400x200/?africa" alt="African landscape">
+                    <div class="feature-card-content">
+                        <h3>Multiple Countries</h3>
+                        <p>Explore diverse landscapes across various African nations.</p>
+                        <md-outlined-button>Discover</md-outlined-button>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <img src="https://source.unsplash.com/400x200/?african-culture" alt="African culture">
+                    <div class="feature-card-content">
+                        <h3>Community Events</h3>
+                        <p>Connect with fellow travelers and locals at our curated events.</p>
+                        <md-outlined-button>Join Us</md-outlined-button>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Subscribe to Our Newsletter</h2>
+                <md-outlined-text-field label="Email" type="email"></md-outlined-text-field>
+                <md-filled-button>Subscribe</md-filled-button>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Mowoki African Experiences, Copyright &copy; 2023</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const emailField = document.querySelector('md-outlined-text-field');
+            const subscribeButton = document.querySelector('md-filled-button');
+
+            subscribeButton.addEventListener('click', () => {
+                if (emailField.value) {
+                    alert('Thank you for subscribing to our newsletter!');
+                    emailField.value = '';
+                } else {
+                    alert('Please enter a valid email address.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
