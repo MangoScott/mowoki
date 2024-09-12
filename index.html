@@ -41,7 +41,7 @@
         header {
             background-color: var(--md-sys-color-surface);
             color: var(--md-sys-color-on-surface);
-            padding: 8px 0;
+            padding: 16px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -64,6 +64,9 @@
             flex-grow: 1;
             display: flex;
             justify-content: flex-end;
+        }
+        nav md-tabs {
+            --md-primary-tab-container-color: transparent;
         }
         #menu-button {
             display: none;
@@ -131,6 +134,35 @@
         }
         .page.active {
             display: block;
+        }
+        .activity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        .country-card {
+            background-color: var(--md-sys-color-surface);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .country-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .country-card-content {
+            padding: 16px;
+        }
+        .event-card {
+            background-color: var(--md-sys-color-surface);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 24px;
+        }
+        .event-card-content {
+            padding: 16px;
         }
         @media (max-width: 767px) {
             nav {
@@ -230,26 +262,6 @@
                     </md-elevated-card>
                 </section>
 
-                <h2>Popular Activities</h2>
-                <section class="features">
-                    <md-elevated-card class="feature-card">
-                        <img src="https://source.unsplash.com/400x200/?safari" alt="Safari Adventure">
-                        <div class="feature-card-content">
-                            <h3>Safari Adventure</h3>
-                            <p>Starting at $100 (Save 10% for groups of 5+)</p>
-                            <md-text-button>Book Now</md-text-button>
-                        </div>
-                    </md-elevated-card>
-                    <md-elevated-card class="feature-card">
-                        <img src="https://source.unsplash.com/400x200/?culture" alt="Cultural Tour">
-                        <div class="feature-card-content">
-                            <h3>Cultural Walking Tour</h3>
-                            <p>Starting at $50 (Save 15% for groups of 10+)</p>
-                            <md-text-button>Book Now</md-text-button>
-                        </div>
-                    </md-elevated-card>
-                </section>
-
                 <section class="newsletter">
                     <h2>Subscribe to Our Newsletter</h2>
                     <md-outlined-text-field label="Email" type="email"></md-outlined-text-field>
@@ -260,65 +272,96 @@
 
         <div id="activities" class="page container">
             <h2>Our Activities</h2>
-            <md-list>
-                <md-list-item>
-                    <div slot="headline">Safari Adventure</div>
-                    <div slot="supporting-text">Experience the wildlife of Africa up close</div>
-                    <md-icon slot="start">photo_camera</md-icon>
-                </md-list-item>
-                <md-list-item>
-                    <div slot="headline">Cultural Tours</div>
-                    <div slot="supporting-text">Immerse yourself in the rich traditions of African tribes</div>
-                    <md-icon slot="start">people</md-icon>
-                </md-list-item>
-                <md-list-item>
-                    <div slot="headline">Mountain Trekking</div>
-                    <div slot="supporting-text">Conquer the peaks of African mountains</div>
-                    <md-icon slot="start">landscape</md-icon>
-                </md-list-item>
-            </md-list>
+            <div class="activity-grid">
+                <md-elevated-card>
+                    <img src="https://source.unsplash.com/400x200/?safari" alt="Safari Adventure">
+                    <div class="feature-card-content">
+                        <h3>Safari Adventure</h3>
+                        <p>Experience the wildlife of Africa up close</p>
+                        <p>Starting at $100 (Save 10% for groups of 5+)</p>
+                        <md-text-button>Book Now</md-text-button>
+                    </div>
+                </md-elevated-card>
+                <md-elevated-card>
+                    <img src="https://source.unsplash.com/400x200/?african-culture" alt="Cultural Tour">
+                    <div class="feature-card-content">
+                        <h3>Cultural Walking Tour</h3>
+                        <p>Immerse yourself in the rich traditions of African tribes</p>
+                        <p>Starting at $50 (Save 15% for groups of 10+)</p>
+                        <md-text-button>Book Now</md-text-button>
+                    </div>
+                </md-elevated-card>
+                <md-elevated-card>
+                    <img src="https://source.unsplash.com/400x200/?african-mountain" alt="Mountain Trekking">
+                    <div class="feature-card-content">
+                        <h3>Mountain Trekking</h3>
+                        <p>Conquer the peaks of African mountains</p>
+                        <p>Starting at $150 (Save 20% for groups of 8+)</p>
+                        <md-text-button>Book Now</md-text-button>
+                    </div>
+                </md-elevated-card>
+            </div>
         </div>
 
         <div id="countries" class="page container">
             <h2>Countries We Explore</h2>
-            <md-list>
-                <md-list-item>
-                    <div slot="headline">Ghana</div>
-                    <div slot="supporting-text">Home to vibrant culture and historical sites</div>
-                    <md-icon slot="start">flag</md-icon>
-                </md-list-item>
-                <md-list-item>
-                    <div slot="headline">Benin</div>
-                    <div slot="supporting-text">Experience the birthplace of Vodun</div>
-                    <md-icon slot="start">flag</md-icon>
-                </md-list-item>
-                <md-list-item>
-                    <div slot="headline">Togo</div>
-                    <div slot="supporting-text">Discover diverse landscapes and traditions</div>
-                    <md-icon slot="start">flag</md-icon>
-                </md-list-item>
-            </md-list>
+            <div class="features">
+                <md-elevated-card class="country-card">
+                    <img src="https://source.unsplash.com/400x200/?ghana" alt="Ghana">
+                    <div class="country-card-content">
+                        <h3>Ghana</h3>
+                        <p>Home to vibrant culture and historical sites</p>
+                        <md-text-button>Explore Ghana</md-text-button>
+                    </div>
+                </md-elevated-card>
+                <md-elevated-card class="country-card">
+                    <img src="https://source.unsplash.com/400x200/?benin" alt="Benin">
+                    <div class="country-card-content">
+                        <h3>Benin</h3>
+                        <p>Experience the birthplace of Vodun</p>
+                        <md-text-button>Explore Benin</md-text-button>
+                    </div>
+                </md-elevated-card>
+                <md-elevated-card class="country-card">
+                    <img src="https://source.unsplash.com/400x200/?togo" alt="Togo">
+                    <div class="country-card-content">
+                        <h3>Togo</h3>
+                        <p>Discover diverse landscapes and traditions</p>
+                        <md-text-button>Explore Togo</md-text-button>
+                    </div>
+                </md-elevated-card>
+            </div>
         </div>
 
         <div id="events" class="page container">
             <h2>Upcoming Events</h2>
-            <md-list>
-                <md-list-item>
-                    <div slot="headline">African Cuisine Workshop</div>
-                    <div slot="supporting-text">Learn to cook authentic African dishes</div>
-                    <md-icon slot="start">restaurant</md-icon>
-                </md-list-item>
-                <md-list-item>
-                    <div slot="headline">Tribal Dance Performance</div>
-                    <div slot="supporting-text">Experience traditional African dances</div>
-                    <md-icon slot="start">music_note</md-icon>
-                </md-list-item>
-                <md-list-item>
-                    <div slot="headline">Wildlife Photography Tour</div>
-                    <div slot="supporting-text">Capture stunning images of African wildlife</div>
-                    <md-icon slot="start">photo_camera</md-icon>
-                </md-list-item>
-            </md-list>
+            <div class="event-card">
+                <div class="event-card-content">
+                    <h3>African Cuisine Workshop</h3>
+                    <p>Learn to cook authentic African dishes</p>
+                    <p>Date: July 15, 2023</p>
+                    <p>Location: Accra, Ghana</p>
+                    <md-text-button>Join Event</md-text-button>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-card-content">
+                    <h3>Tribal Dance Performance</h3>
+                    <p>Experience traditional African dances</p>
+                    <p>Date: August 5, 2023</p>
+                    <p>Location: Lomé, Togo</p>
+                 <md-text-button>Join Event</md-text-button>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-card-content">
+                    <h3>Wildlife Photography Tour</h3>
+                    <p>Capture stunning images of African wildlife</p>
+                    <p>Date: September 10, 2023</p>
+                    <p>Location: Mole National Park, Ghana</p>
+                    <md-text-button>Join Event</md-text-button>
+                </div>
+            </div>
             <md-filled-button>Create New Event</md-filled-button>
         </div>
 
@@ -335,6 +378,10 @@
                         <div slot="headline">Safari Adventure</div>
                         <div slot="supporting-text">Booked for July 15, 2023</div>
                     </md-list-item>
+                    <md-list-item>
+                        <div slot="headline">Cultural Walking Tour</div>
+                        <div slot="supporting-text">Booked for August 3, 2023</div>
+                    </md-list-item>
                 </md-list>
             </div>
             <div id="notifications" class="dashboard-content" style="display: none;">
@@ -343,13 +390,21 @@
                         <div slot="headline">New member joined your Safari group</div>
                         <div slot="supporting-text">2 hours ago</div>
                     </md-list-item>
+                    <md-list-item>
+                        <div slot="headline">Reminder: Cultural Walking Tour in 2 days</div>
+                        <div slot="supporting-text">1 day ago</div>
+                    </md-list-item>
                 </md-list>
             </div>
-  <div id="group-chats" class="dashboard-content" style="display: none;">
+            <div id="group-chats" class="dashboard-content" style="display: none;">
                 <md-list>
                     <md-list-item>
                         <div slot="headline">Safari Adventure Group</div>
                         <div slot="supporting-text">5 members</div>
+                    </md-list-item>
+                    <md-list-item>
+                        <div slot="headline">Cultural Walking Tour Group</div>
+                        <div slot="supporting-text">8 members</div>
                     </md-list-item>
                 </md-list>
             </div>
@@ -413,32 +468,29 @@
             });
 
             // Simulate dynamic pricing
-            const groupSizeSelect = document.createElement('md-filled-select');
-            groupSizeSelect.label = 'Group Size';
-            for (let i = 1; i <= 10; i++) {
-                const option = document.createElement('md-select-option');
-                option.value = i;
-                option.textContent = i;
-                groupSizeSelect.appendChild(option);
-            }
-            
-            const priceDisplay = document.createElement('p');
-            priceDisplay.textContent = 'Price per person: $100';
-
-            const firstFeatureCard = document.querySelector('.feature-card');
-            firstFeatureCard.querySelector('.feature-card-content').insertBefore(priceDisplay, firstFeatureCard.querySelector('md-text-button'));
-            firstFeatureCard.querySelector('.feature-card-content').insertBefore(groupSizeSelect, priceDisplay);
-
-            groupSizeSelect.addEventListener('change', () => {
-                const groupSize = parseInt(groupSizeSelect.value);
-                let price = 100; // Base price
-                if (groupSize >= 5) {
-                    price *= 0.9; // 10% discount for 5+ people
+            const groupSizeSelects = document.querySelectorAll('.activity-grid md-elevated-card md-filled-select');
+            groupSizeSelects.forEach(select => {
+                for (let i = 1; i <= 10; i++) {
+                    const option = document.createElement('md-select-option');
+                    option.value = i;
+                    option.textContent = `${i} person${i > 1 ? 's' : ''}`;
+                    select.appendChild(option);
                 }
-                if (groupSize >= 10) {
-                    price *= 0.95; // Additional 5% discount for 10+ people
-                }
-                priceDisplay.textContent = `Price per person: $${price.toFixed(2)}`;
+                
+                const priceDisplay = select.nextElementSibling;
+                const basePrice = parseInt(priceDisplay.textContent.match(/\$(\d+)/)[1]);
+
+                select.addEventListener('change', () => {
+                    const groupSize = parseInt(select.value);
+                    let price = basePrice;
+                    if (groupSize >= 5) {
+                        price *= 0.9; // 10% discount for 5+ people
+                    }
+                    if (groupSize >= 10) {
+                        price *= 0.95; // Additional 5% discount for 10+ people
+                    }
+                    priceDisplay.textContent = `Price: $${price.toFixed(2)} per person`;
+                });
             });
 
             // Add safety information
